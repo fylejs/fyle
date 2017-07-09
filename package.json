@@ -2,7 +2,9 @@
   "name": "fyle",
   "version": "0.0.1",
   "description": "Small module system for frontend projects",
-  "main": "main.js",
+  "main": "dist/fyle.cjs.js",
+  "module": "dist/fyle.es.js",
+  "jsnext:main": "dist/fyle.es.js",
   "scripts": {
     "build": "npm run build:dist && npm run build:uglify",
     "build:dist": "npm run build:src && npm run build:rollup",
@@ -19,6 +21,7 @@
   "author": "Katja Lutz",
   "license": "MIT",
   "devDependencies": {
+    "handlebars": "^4.0.10",
     "prettier": "^1.4.4",
     "rollup": "^0.43.0",
     "rollup-plugin-buble": "^0.15.0",
@@ -27,8 +30,12 @@
     "rollup-watch": "^4.0.0",
     "uglify-js": "^3.0.16"
   },
-  "dependencies": {
-    "handlebars": "^4.0.10"
+  "homepage": "https://github.com/fylejs/fyle",
+  "bugs": {
+    "url": "https://github.com/fylejs/fyle/issues"
   },
-  "homepage": "https://github.com/fylejs/fyle"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fylejs/fyle.git"
+  }
 }

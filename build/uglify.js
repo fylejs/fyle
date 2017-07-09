@@ -23,7 +23,7 @@ const uglify = function(fileName) {
   const srcFilePath = path.join(destPath, `${prefix}.${suffix}`);
   const destFilePath = path.join(destPath, `${prefix}.min.${suffix}`);
 
-  const cmd = `${uglifyCmdPath} --comments /@license/ --compress --mangle --keep-fnames --output ${destFilePath} -- ${srcFilePath}`;
+  const cmd = `${uglifyCmdPath} --comments /@license/ --compress --mangle --output ${destFilePath} -- ${srcFilePath}`;
 
   return pexec(cmd).catch(function(res) {
     console.error(res.stderr);

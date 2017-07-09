@@ -1,7 +1,34 @@
 <html>
   <head>
-    <script src="dist/main.iife.min.js"></script>
+    <script src="dist/fyle.js"></script>
   </head>
   <body>
+    <h1 id="title"></h1>
+    <h2 id="subtitle"></h2>
+    <script>
+      var $ = fyle('utils/$', function(exports) {
+        exports.default = document.querySelectorAll.bind(document);
+      }).default;
+
+      fyle('waitForIt', function(exports, require) {
+        var color = require('views/index.js').titleColor;
+        var $ = require('utils/$').default;
+        if (fyle.wait()) return;
+
+        $('body')[0].style['background-color'] = color;
+      });
+
+
+      fyle('config/titles.js', function(exports) {
+        exports.subtitle = 'Fantastic to meet you!';
+      });
+      fyle('views/index.js', function(exports, require, localFyle) {
+        exports.title = 'Hello world';
+        exports.subtitle = require('../config/titles').subtitle;
+        exports.titleColor = 'yellow';
+      });
+      $('#title')[0].innerHTML = fyle.require('views/index').title;
+      $('#subtitle')[0].innerHTML = fyle.require('views/index').subtitle;
+    </script>
   </body>
 </html>
